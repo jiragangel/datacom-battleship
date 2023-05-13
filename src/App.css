@@ -1,0 +1,114 @@
+.App {
+  padding: 25px 50px;
+  display: grid;
+  grid-gap: 50px;
+  grid-template-columns: 40% 60%;
+  grid-template-rows: minmax(min-content, max-content) 1fr;
+  grid-template-areas: 
+    "score board"
+    "ships board";
+}
+
+.score > div {
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 50%;
+}
+
+.score {
+  display: flex;
+  grid-area: score;
+  width: 100%;
+}
+
+.score__value {
+  border-bottom: solid 1px black;
+  width: 80%;
+  text-align: center;
+  padding-bottom: 10px;
+  height: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: 70px;
+  font-weight: bold;
+}
+
+.score__player {
+  text-align: center;
+  padding-top: 10px;
+  height: 30%;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.score > div:first-child {
+  background-color: #ffb404;
+}
+
+.score > div:last-child {
+  background-color: #28b49c;
+}
+
+.battleships {
+  grid-area: ships;
+  width: 100%;
+}
+
+.ship-details {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr 1fr;
+  height: 120px
+}
+
+.ship-details__icon {
+  display: flex;
+  align-items: center;
+}
+
+.ship-details__icon > img {
+  width: 100%;
+}
+
+.ship-details__tracker {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0px 20px;
+}
+
+.ship-details__tracker > img, .ship-details__tracker > span {
+  width: 30px;
+}
+
+.board {
+  grid-area: board;
+  border: solid 5px #ffb404;
+  display: grid;
+  grid-template-columns: repeat(10, calc(10% - 0.9px));
+  grid-template-rows: repeat(10, calc(10% - 0.9px));
+  background-color: gray;
+  grid-gap: 1px;
+  aspect-ratio: 1 / 1;
+  width: calc(100% - 60px);
+}
+
+.board__item {
+  aspect-ratio: 1 / 1;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FF7F5B;
+  font-size: 2.5rem;
+  cursor: pointer;
+}
+
+.board__item > img {
+  width: 100%;
+}
