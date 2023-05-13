@@ -12,10 +12,10 @@ interface IBattleships {
 }
 
 function Battleships({ shipTypes, counter, maxSize }: IBattleships) {
-  const getTrackerIcon = useCallback((shipType: string, value: number, idx: number) => {
-    // a part of the ship was hit
-    if (value > 0 && idx < value) return <img key={`ship-${idx}`} alt="hit" src={HitSmall} />
-    if (idx + 1 > shipTypes[shipType as ShipTypes].size) return <span key={`ship-${idx}`} />;
+  const getTrackerIcon = useCallback((shipType: ShipTypes, sunkSize: number, idx: number) => {
+    if (idx + 1 > shipTypes[shipType].size) return <span key={`ship-${idx}`} />;
+    // ship has been sunk
+    if (shipTypes[shipType].size === sunkSize) return <img key={`ship-${idx}`} alt="hit" src={HitSmall} />
     return <img key={`ship-${idx}`} alt="miss" src={MissSmall} />
   }, [shipTypes])
 
@@ -29,7 +29,7 @@ function Battleships({ shipTypes, counter, maxSize }: IBattleships) {
               {
                 [...Array(maxSize)].map(
                   (v, idx) => (
-                    getTrackerIcon(key, value, idx)
+                    getTrackerIcon(key as ShipTypes, value, idx)
                   )
                 )
               }
