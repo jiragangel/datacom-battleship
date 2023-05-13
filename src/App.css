@@ -112,3 +112,100 @@
 .board__item > img {
   width: 100%;
 }
+
+/* tablet */
+@media only screen and (max-width: 962px) {
+  .App {
+    padding: 10px;
+    grid-gap: 10px;
+    grid-template-areas: 
+      "board board"
+      "score ships";
+  }
+  .score > div {
+    height: 150px;
+  }
+
+  .score__value {
+    padding-bottom: 0px;
+    font-size: 50px;
+    font-weight: bold;
+  }
+  
+  .score__player {
+    font-size: 20px;
+  }
+
+  .board {
+    width: calc(100% - 20px);
+    height: auto;
+  }
+
+  .battleships {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+  }
+
+  .ship-details {
+    height: 75px;
+  }
+
+  .ship-details__tracker > img, .ship-details__tracker > span {
+    width: 20px;
+  }
+
+  .ship-details__tracker {
+    padding: 0 5px;
+  }
+}
+
+/* mobile */
+@media only screen and (max-width: 640px) {
+  .App {
+    padding: 0px;
+    grid-gap: 0;
+    grid-template-columns: 100%;
+    grid-template-rows: repeat(3, minmax(min-content, max-content));
+    grid-template-areas: 
+      "board"
+      "score"
+      "ships";
+  }
+  .score > div {
+    height: 150px;
+  }
+
+  .score__value {
+    padding-bottom: 0px;
+    font-size: 50px;
+    font-weight: bold;
+  }
+  
+  .score__player {
+    font-size: 20px;
+  }
+
+  .board {
+    width: calc(100% - 10px);
+    height: auto;
+  }
+
+  .battleships {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+  }
+
+  .ship-details {
+    height: 75px;
+  }
+
+  .ship-details__tracker > img, .ship-details__tracker > span {
+    width: 20px;
+  }
+
+  .ship-details__tracker {
+    padding: 0 5px;
+  }
+}
